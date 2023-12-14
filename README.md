@@ -2,7 +2,7 @@
 
 Bem-vindo ao Robotron 2000, um aplicativo web para construir e personalizar seu próprio robô com diferentes componentes e ver suas estatísticas!
 
-![Robotron 2000](img/project.png.jpg)
+![Robotron 2000](img/project.png)
 
 ## Como Funciona
 
