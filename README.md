@@ -1,42 +1,62 @@
-# Robotron 2000
+# Robotron
 
 Bem-vindo ao Robotron 2000, um aplicativo web para construir e personalizar seu próprio robô com diferentes componentes e ver suas estatísticas!
 
-![Robotron 2000](img/project.png)
+<div align="center">
+  <img src="img/project.png" alt="Imagem do Projeto" width="800">
+</div>
 
-## Como Funciona
+## Sumário
 
-### Estrutura HTML
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Status](#status)
+- [Descrição](#descrição)
+- [Funcionalidades](#funcionalidades)
+- [Como Usar](#como-usar)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Observações](#Observações)
+- [Autor](#autor)
 
-O projeto consiste em um arquivo HTML (`index.html`) com seções para a exibição do robô, estatísticas e personalização de equipamentos.
+## Tecnologias Utilizadas
 
-### Estilo CSS
+<div style="display: flex; flex-direction: row;">
+  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
+    <img src="img/html.png" alt="Logo HTML" width="100"/>
+  </div>
+  <div style="display: flex; justify-content: flex-center;">
+    <img src="img/css.png" alt="Logo CSS" width="100"/>
+  </div>
+  <div style="display: flex; justify-content: flex-end;">
+    <img src="img/js.png" alt="Logo CSS" width="100"/>
+  </div>
+</div>
 
-Os estilos são definidos no arquivo `style.css` para dar ao aplicativo uma aparência moderna e futurista.
+## Status
 
-### Funcionalidade JavaScript
+<!-- ![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge) -->
 
-A lógica principal está implementada em `main.js`, onde as interações do usuário são tratadas. Você pode personalizar os componentes do robô usando o formulário, e as estatísticas serão atualizadas dinamicamente.
+![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 
-## Componentes
+## Descrição
 
-- **Braços**
-- **Blindagem**
-- **Núcleos**
-- **Pernas**
-- **Foguetes**
+O código em main.js e HTML constitui o Robotron 2000, um aplicativo de montagem de robôs interativo. Os usuários podem personalizar seus robôs ajustando a quantidade de diferentes peças, como braços, blindagem, núcleos, pernas e foguetes. Ao clicar nos botões de controle no HTML, as estatísticas do robô são dinamicamente recalculadas, proporcionando uma visualização em tempo real do impacto das escolhas de peças na força, poder, energia e velocidade do robô. Em essência, o projeto oferece uma experiência envolvente de montagem e visualização das características do robô resultante.
 
-Cada componente contribui para as estatísticas do robô (Força, Poder, Energia e Velocidade). Ajustar as quantidades usando os botões +/- atualiza as estatísticas em tempo real.
+## Funcionalidades
 
-## Como Começar
+O código permite ajustar a quantidade de cada tipo de peça (braços, blindagem, núcleos, pernas, foguetes) através de botões de controle. Ao fazer esses ajustes, as estatísticas do robô são atualizadas dinamicamente.
 
-1. Clone o repositório.
-2. Abra `index.html` no seu navegador.
-3. Personalize seu robô ajustando as quantidades dos componentes.
-4. Clique em "Iniciar produção" para iniciar a produção e ver as estatísticas finais do seu robô.
+## Como Usar
+
+No HTML, as peças têm botões de controle (- e +) para ajustar a quantidade desejada. Ao clicar nos botões, as estatísticas do robô são atualizadas em tempo real.
+
+## Estrutura do Projeto
+
+O projeto possui uma estrutura simples, com um arquivo main.js responsável pela manipulação dos dados e uma página HTML que contém a interface do usuário. As estatísticas do robô são exibidas e atualizadas conforme as interações do usuário.
 
 ## Observações
 
-- **Aviso:** Até o momento, a função de decremento para as propriedades do robô ainda não foi implementada. Estamos trabalhando nisso para uma futura atualização!
+- **Aviso:** Até o momento, a função de decremento para as propriedades do robô ainda não foi implementada.
 
-Sinta-se à vontade para fazer fork, modificar e melhorar o Robotron 2000!
+## Autor
+
+Desenvolvido por Diego Franco.
