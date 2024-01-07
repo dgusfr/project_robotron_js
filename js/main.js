@@ -4,7 +4,7 @@ const estatistica = document.querySelectorAll("[data-estatistica]");
 const componentes = {
   bracos: {
     forca: 29,
-    poder: 35,
+    poder: 30,
     energia: -21,
     velocidade: -5,
   },
@@ -18,13 +18,13 @@ const componentes = {
   nucleos: {
     forca: 0,
     poder: 7,
-    energia: 48,
+    energia: 30,
     velocidade: -24,
   },
   pernas: {
     forca: 27,
     poder: 21,
-    energia: -32,
+    energia: -30,
     velocidade: 42,
   },
   foguetes: {
@@ -35,41 +35,73 @@ const componentes = {
   },
 };
 
-//"controle" é o elemento clicável que de interação.
-// "componente" é a parte específica dos dados associados a esse controle
+const MAX_VALOR_COMPONENTE = 30; // Valor máximo para cada componente
+
 controle.forEach((elemento) => {
   elemento.addEventListener("click", (evento) => {
-    // Quando um elemento é clicado, chama a função manipulaDados com o
-    // conteúdo de texto do elemento clicado e o pai desse elemento
-    manipulaDados(evento.target.textContent, evento.target.parentNode);
-
-    // Chama a função atualizaEstatistica com o valor do atributo 'data-componente' do elemento clicado
-    atualizaEstatistica(evento.target.dataset.componente);
+    const operacao = evento.target.dataset.controle; // Pega a operação do data-controle
+    manipulaDados(operacao, evento.target.parentNode);
+    atualizaEstatistica(evento.target.dataset.componente, operacao);
   });
 });
 
-// Manipula os dados associados aos controles (Braços, Blindagem,...)
 function manipulaDados(operacao, controle) {
-  // Seleciona o componente associado ao controle
   const componente = controle.querySelector("[data-contador]");
+  let novoValor;
 
-  // Verifica se a operação é uma subtração ("-")
   if (operacao === "-") {
-    // Decrementa o valor do componente
-    componente.value = parseInd(componente.value) - 1;
+    novoValor = parseInt(componente.value) - 1;
   } else {
-    // Caso contrário, incrementa o valor do componente
-    componente.value = parseInt(componente.value) + 1;
+    novoValor = parseInt(componente.value) + 1;
+  }
+
+  // Verifica se o novo valor ultrapassa o máximo
+  if (novoValor > MAX_VALOR_COMPONENTE) {
+    novoValor = MAX_VALOR_COMPONENTE;
+  }
+
+  // Atualiza o valor do componente como inteiro
+  componente.value = novoValor;
+
+  // Redistribui a diferença para os outros componentes se necessário
+  redistribuiDiferenca(controle, novoValor);
+}
+
+function redistribuiDiferenca(controleAtual, novoValor) {
+  const componentesAtualizados = document.querySelectorAll("[data-contador]");
+  const totalAtual = Array.from(componentesAtualizados).reduce(
+    (total, comp) => total + parseInt(comp.value),
+    0
+  );
+
+  // Calcula a diferença entre o total atual e o valor máximo permitido
+  const diferenca = totalAtual - MAX_VALOR_COMPONENTE;
+
+  // Se houver diferença, redistribui para os outros componentes
+  if (diferenca > 0) {
+    const outrosControles = Array.from(componentesAtualizados).filter(
+      (comp) => comp !== controleAtual.querySelector("[data-contador]")
+    );
+
+    outrosControles.forEach((outroControle) => {
+      const valorAtual = parseInt(outroControle.value);
+      const diferencaRedistribuir = (valorAtual / totalAtual) * diferenca;
+      outroControle.value = valorAtual - diferencaRedistribuir;
+
+      // Garante que os valores não fiquem negativos
+      if (parseInt(outroControle.value) < 0) {
+        outroControle.value = 0;
+      }
+    });
   }
 }
 
-// Atualiza as estatísticas associadas aos diferentes componentes
-function atualizaEstatistica(componente) {
-  // Para cada elemento de estatística
+function atualizaEstatistica(componente, operacao) {
   estatistica.forEach((elemento) => {
-    // Atualiza o conteúdo com a soma do valor atual e o valor do componente fornecido
+    const operacaoMultiplier = operacao === "+" ? 1 : -1;
     elemento.textContent =
       parseInt(elemento.textContent) +
-      componentes[componente][elemento.dataset.estatistica];
+      operacaoMultiplier *
+        componentes[componente][elemento.dataset.estatistica];
   });
 }

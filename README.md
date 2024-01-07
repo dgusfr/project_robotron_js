@@ -53,10 +53,6 @@ No HTML, as peças têm botões de controle (- e +) para ajustar a quantidade de
 
 O projeto possui uma estrutura simples, com um arquivo main.js responsável pela manipulação dos dados e uma página HTML que contém a interface do usuário. As estatísticas do robô são exibidas e atualizadas conforme as interações do usuário.
 
-## Observações
-
-- **Aviso:** Até o momento, a função de decremento para as propriedades do robô ainda não foi implementada.
-
 ## Autor
 
 Desenvolvido por Diego Franco.
