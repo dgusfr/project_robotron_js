@@ -39,7 +39,11 @@ Bem-vindo ao Robotron 2000, um aplicativo web para construir e personalizar seu 
 
 ## Descrição
 
-O código em main.js e HTML constitui o Robotron 2000, um aplicativo de montagem de robôs interativo. Os usuários podem personalizar seus robôs ajustando a quantidade de diferentes peças, como braços, blindagem, núcleos, pernas e foguetes. Ao clicar nos botões de controle no HTML, as estatísticas do robô são dinamicamente recalculadas, proporcionando uma visualização em tempo real do impacto das escolhas de peças na força, poder, energia e velocidade do robô. Em essência, o projeto oferece uma experiência envolvente de montagem e visualização das características do robô resultante.
+O código em main.js e HTML constitui o Robotron 2000, um aplicativo de montagem de robôs interativo. 
+
+Os usuários podem personalizar seus robôs ajustando a quantidade de diferentes peças, como braços, blindagem, núcleos, pernas e foguetes. Ao clicar nos botões de controle no HTML, as estatísticas do robô são dinamicamente recalculadas, proporcionando uma visualização em tempo real do impacto das escolhas de peças na força, poder, energia e velocidade do robô. 
+
+Em essência, o projeto oferece uma experiência envolvente de montagem e visualização das características do robô resultante.
 
 ## Funcionalidades
 
